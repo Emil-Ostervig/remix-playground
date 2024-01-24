@@ -1,5 +1,5 @@
 import React, { ComponentType, useMemo } from 'react';
-import { ModulesAsKeys } from '~/api/types';
+import { Modules, ModulesAsKeys } from '~/api/types';
 
 type ModuleBase = { type: string };
 
@@ -18,8 +18,19 @@ const blocks: Blocks = {
   M010HeroModule: React.lazy(() => import('~/components/modules/M10Hero/M10Hero').then((mod) => ({ default: mod.M10Hero })))
 };
 
+const FallbackBlock = (props: Modules) => {
+    const { type, ...rest } = props;
+
+    return (
+        <div>
+            <h3>Missing implementation for {type}</h3>
+            <pre style={{whiteSpace: 'pre-line'}}>{JSON.stringify(rest)}</pre>
+        </div>
+    )
+}
+
 const DynamicBlock = ({ element, index, count }: { element: ModuleBase; index: number; count: number }) => {
-  const Block = blocks[element.type as keyof Blocks] || Noop;
+  const Block = blocks[element.type as keyof Blocks] || FallbackBlock;
   return (
     <Block {...(element as object)} />
   );

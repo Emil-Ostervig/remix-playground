@@ -43,10 +43,10 @@ export default function App() {
       <body>
         <FrameContext.Provider value={frame}>
           <Outlet />
-        </FrameContext.Provider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        </FrameContext.Provider>
       </body>
     </html>
   );

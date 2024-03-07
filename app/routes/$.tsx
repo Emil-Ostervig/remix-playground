@@ -9,7 +9,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export const headers = () => ({
-  'Cache-Control': 'public, maxage=300, stale-while-revalidate=60',
+  'Cache-Control': 'public, max-age=300, stale-while-revalidate=60',
 });
 
 export const loader = pageLoader;

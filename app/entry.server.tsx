@@ -8,6 +8,12 @@ import { renderToPipeableStream } from "react-dom/server";
 
 const ABORT_DELAY = 5_000;
 
+const responseCodes: Record<string, number> = {
+  'P140NotFoundPage': 404,
+  'P150ErrorPage': 500,
+  undefined: 200,
+}
+
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,
@@ -107,6 +113,9 @@ function handleBrowserRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
+  const pageType = remixContext.staticHandlerContext.loaderData?.['routes/$']?.type as string;
+  const resolvedResponseCode = responseCodes?.[pageType] ?? responseStatusCode;
+
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
@@ -126,7 +135,7 @@ function handleBrowserRequest(
           resolve(
             new Response(stream, {
               headers: responseHeaders,
-              status: responseStatusCode,
+              status: resolvedResponseCode,
             })
           );
 

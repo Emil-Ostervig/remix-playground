@@ -12,7 +12,7 @@ export const ErrorBoundary = () => {
     // error.data = "Oh no! Something went wrong!"
   }
   return (
-      <PageContext.Provider value={(error?.data?.page)}>
+    <PageContext.Provider value={(error?.data?.page)}>
       <DefaultLayout/>
     </PageContext.Provider>
 

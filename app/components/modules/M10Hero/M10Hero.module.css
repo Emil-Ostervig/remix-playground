@@ -1,17 +1,19 @@
 .container {
   display: grid;
-  grid-column: 1 / span 12;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-gap: var(--spacing-fluid-grid-gap);
+  gap: var(--spacing-fluid-grid-gap);
 }
 
 .m10 {
   --hero-stacking-context: 0;
   --hero-content-stacking-context: calc(var(--hero-stacking-context) + 1);
   position: relative;
-  display: grid;
   grid-column: 1 / span 12;
   width: 100%;
   height: auto;
   min-height: 400px;
+  min-width: 0;
   @media --md {
     min-height: 600px;
   }

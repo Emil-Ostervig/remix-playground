@@ -1,0 +1,65 @@
+@keyframes progressbar1 {
+  0% {
+    transform: scaleX(0) translateX(-30%);
+  }
+  60% {
+    transform: scaleX(90%) translateX(140%);
+  }
+  100% {
+    transform: scaleX(90%) translateX(180%);
+  }
+}
+
+@keyframes progressbar2 {
+  0% {
+    transform: scaleX(10%) translateX(-100%);
+  }
+  60% {
+    transform: scaleX(20%) translateX(500%);
+  }
+  100% {
+    transform: scaleX(10%) translateX(1500%);
+  }
+}
+
+.container {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 4px;
+  background-color: var(--color-loading-background);
+  pointer-events: none;
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+    /* Delay the visibility to avoid showing when routing is fast */
+    transition: opacity 0.1s ease-in 0.2s;
+  }
+}
+
+.progressbarOne {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  transform-origin: left;
+  animation: progressbar1 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+  background-color: var(--color-loading-foreground);
+}
+
+.progressbarTwo {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: progressbar2 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite;
+  background-color: var(--color-loading-foreground);
+}

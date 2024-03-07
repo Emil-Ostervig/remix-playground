@@ -9,15 +9,14 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export const loader = pageLoader;
-export default function Index() {
-  const page =  useLoaderData<typeof pageLoader>();
+export const Index = () => {
+  const page = useLoaderData<typeof pageLoader>();
   return (
     <PageContext.Provider value={page}>
       <DefaultLayout />
     </PageContext.Provider>
   );
-}
-
-
+};
 
 export const ErrorBoundary = ErrorBoundaryLayout;
+export default Index;

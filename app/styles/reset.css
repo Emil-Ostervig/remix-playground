@@ -123,6 +123,11 @@ table {
   border-spacing: 0;
 }
 
+img {
+  max-width: 100%;
+  width: auto;
+}
+
 * {
   box-sizing: border-box;
 }

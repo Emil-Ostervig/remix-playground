@@ -1,6 +1,8 @@
 .container {
   display: grid;
-  grid-column: 1 / span 12;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-gap: var(--spacing-fluid-grid-gap);
+  gap: var(--spacing-fluid-grid-gap);
 }
 
 .m100 {

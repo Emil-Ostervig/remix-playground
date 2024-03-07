@@ -2,11 +2,12 @@ import { json, LoaderFunctionArgs } from '@remix-run/node';
 import { getPage } from '~/api/getPage';
 
 export const pageLoader = async ({ params, context: _context, request: _request }: LoaderFunctionArgs) => {
-  const route = params?.['*'];
+  const routeParam = params?.['*'] ?? '';
+  const route = `/${routeParam}`;
   let data;
   try {
     data = await getPage({
-      route: route ? `/${route}` : '/',
+      route: `${route}`,
       locale: 'en',
     });
   } catch (e) {
@@ -16,7 +17,6 @@ export const pageLoader = async ({ params, context: _context, request: _request 
       statusText: 'whoops',
     });
   }
-
   // Handle 404. Thrown data is caught by ErrorBoundary for the route.
   if (data?.type === 'P140NotFoundPage') {
     throw json(

@@ -1,18 +1,4 @@
-import { useLoaderData } from '@remix-run/react';
-import { DefaultLayout } from '~/components/Layout/DefaultLayout/DefaultLayout';
-import { ErrorBoundary as ErrorBoundaryComponent } from '~/components/Layout/ErrorBoundary/ErrorBoundary';
-import { PageContext } from '~/context/PageContext/PageContext';
-import { pageLoader } from '~/loaders/pageLoader';
+import { meta, loader, ErrorBoundary, Index } from './$';
+export {meta, loader, ErrorBoundary};
 
-export const loader = pageLoader;
-export default function Index() {
-  const page = useLoaderData<typeof pageLoader>();
-  return (
-    <PageContext.Provider value={page}>
-      <DefaultLayout/>
-    </PageContext.Provider>
-  );
-}
-
-
-export const ErrorBoundary = ErrorBoundaryComponent;
+export default Index;

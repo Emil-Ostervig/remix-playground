@@ -1,7 +1,19 @@
-import React, { ComponentType, useMemo } from 'react';
-import { Modules, ModulesAsKeys } from '~/api/types';
-
+import React, { ComponentType } from 'react';
+import {  ModulesAsKeys } from '~/api/types';
+import { FallbackBlock } from './FallBackBlock';
 type ModuleBase = { type: string };
+
+const M010HeroModule = React.lazy(() =>
+  import('~/components/modules/M10Hero/M10Hero').then((mod) => ({
+    default: mod.M10Hero,
+  }))
+);
+
+const M100RichTextModule = React.lazy(() =>
+  import('~/components/modules/M100RichText/M100RichText').then((mod) => ({
+    default: mod.M100RichText,
+  }))
+);
 
 type Props = {
   elements?: ModuleBase[];
@@ -12,28 +24,14 @@ export type Blocks = {
   [key in ModulesAsKeys]?: ComponentType | any;
 };
 
-const Noop = ({ children }: { children: ComponentType }) => <>{children}</>;
-
 const blocks: Blocks = {
-  M010HeroModule: React.lazy(() => import('~/components/modules/M10Hero/M10Hero').then((mod) => ({ default: mod.M10Hero })))
+  M010HeroModule: M010HeroModule,
+  M100RichTextModule: M100RichTextModule,
 };
 
-const FallbackBlock = (props: Modules) => {
-    const { type, ...rest } = props;
-
-    return (
-        <div>
-            <h3>Missing implementation for {type}</h3>
-            <pre style={{whiteSpace: 'pre-line'}}>{JSON.stringify(rest)}</pre>
-        </div>
-    )
-}
-
-const DynamicBlock = ({ element, index, count }: { element: ModuleBase; index: number; count: number }) => {
+const DynamicBlock = ({ element }: { element: ModuleBase; index: number; count: number }) => {
   const Block = blocks[element.type as keyof Blocks] || FallbackBlock;
-  return (
-    <Block {...(element as object)} />
-  );
+  return <Block {...(element as object)} />;
 };
 
 export const DynamicBlocks = ({ elements, indexOffset = 0 }: Props) => {

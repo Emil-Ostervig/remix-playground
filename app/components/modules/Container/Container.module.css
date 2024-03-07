@@ -1,0 +1,19 @@
+.container {
+  max-width: 100%;
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.gutter {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.spacing {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}

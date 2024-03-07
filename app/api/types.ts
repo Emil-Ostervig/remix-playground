@@ -116,9 +116,7 @@ export type M071VideoModule = (ExtendedVideo & VideoSettings & BaseModule) & {
 /**
  * M075ImageAndTextModule
  */
-export type M075ImageAndTextModule = (ExtendedVideo &
-  VideoSettings &
-  BaseModule) & {
+export type M075ImageAndTextModule = (ExtendedVideo & VideoSettings & BaseModule) & {
   callToAction?: CallToAction;
   /** Headline */
   headline?: string;
@@ -139,13 +137,9 @@ export type M080ContentCarousel = BaseModule & {
   /** Headline */
   headline?: string;
   /** Items */
-  items: (
-    | ContentCarouselItem
-    | DynamicContentCarouselItem
-    | (ContentCarouselItem & DynamicContentCarouselItem)
-  )[];
+  items: (ContentCarouselItem | DynamicContentCarouselItem | (ContentCarouselItem & DynamicContentCarouselItem))[];
   /** layout */
-  layout?: "Carousel" | "List";
+  layout?: 'Carousel' | 'List';
   type: string;
 };
 
@@ -159,14 +153,14 @@ export type M089RelevantContent = BaseModule & {
    * Headline display type
    * Defaults to display4 if "none" chosen
    */
-  displayType?: "display1" | "display2" | "display3" | "display4";
+  displayType?: 'display1' | 'display2' | 'display3' | 'display4';
   /** Text */
   richText?: string;
   /** Call To Action */
   callToAction?: Link;
   tags?: TagGroup[];
   /** Default sorting */
-  defaultSorting?: "relevance" | "alphabeticalAsc" | "alphabeticalDesc";
+  defaultSorting?: 'relevance' | 'alphabeticalAsc' | 'alphabeticalDesc';
   /**
    * Enable facets?
    * If enabled, user will be able to filter the results. If enabled this module will also be affected by facets of other M089 instances on the same page.
@@ -196,7 +190,7 @@ export type M100RichTextModule = BaseModule & {
    * Headline display type
    * Defaults to display4 if "none" chosen
    */
-  displayType?: "display1" | "display2" | "display3" | "display4";
+  displayType?: 'display1' | 'display2' | 'display3' | 'display4';
   /** First column */
   richText?: string;
   /** Second column */
@@ -291,7 +285,7 @@ export interface Markets {
   availableMarkets?: Market[] | null;
 }
 
-export type ModulePageBase = UtilRequiredKeys<PageBase, "type"> & {
+export type ModulePageBase = UtilRequiredKeys<PageBase, 'type'> & {
   modules: (
     | M010HeroModule
     | M020CategoriesModule
@@ -437,20 +431,16 @@ export interface CallToAction {
    * Target
    * Chosing _blank will open link in a new tab.
    */
-  target?: "_blank";
+  target?: '_blank';
   /** Anchor */
   id?: string;
   /** Page reference */
-  pageReference?:
-    | P020HomePage
-    | P060StandardPage
-    | P010SearchPage
-    | (P020HomePage & P060StandardPage & P010SearchPage);
+  pageReference?: P020HomePage | P060StandardPage | P010SearchPage | (P020HomePage & P060StandardPage & P010SearchPage);
   /**
    * Variant
    * Defaults to "primary" if "none" chosen
    */
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: 'primary' | 'secondary' | 'tertiary';
 }
 
 /**
@@ -571,12 +561,7 @@ export interface FormTypeDropdown {
   dropdown?: FormTypeEnum;
 }
 
-export type FormTypeEnum =
-  | "Standard"
-  | "Slider"
-  | "SideTab"
-  | "Popup"
-  | "Popover";
+export type FormTypeEnum = 'Standard' | 'Slider' | 'SideTab' | 'Popup' | 'Popover';
 
 /**
  * Site settings
@@ -627,12 +612,12 @@ export interface HomePageBasePage {
 /**
  * Horizontal alignment
  */
-export type HorizontalFull = "Left" | "Center" | "Right";
+export type HorizontalFull = 'Left' | 'Center' | 'Right';
 
 /**
  * Horizontal alignment
  */
-export type HorizontalSimple = "Left" | "Right";
+export type HorizontalSimple = 'Left' | 'Right';
 
 export interface HotSpots {
   hasPolygon: boolean;
@@ -697,7 +682,7 @@ export interface Link {
    * Target
    * Chosing _blank will open link in a new tab.
    */
-  target?: "_blank";
+  target?: '_blank';
 }
 
 export type LocalizedImage = Image & {
@@ -730,7 +715,7 @@ export interface Meta {
   hideFromRobots?: boolean;
 }
 
-export type ModuleSpacing = "No spacing" | "Small" | "Medium" | "Large";
+export type ModuleSpacing = 'No spacing' | 'Small' | 'Medium' | 'Large';
 
 /**
  * Page reference card
@@ -879,14 +864,7 @@ export interface TagGroup {
   availableInLocales?: boolean;
 }
 
-export type TagValue = (
-  | Species
-  | Concepts
-  | Lifecycles
-  | ContentTag
-  | ProductTags
-  | (Species & Concepts & Lifecycles & ContentTag & ProductTags)
-) & {
+export type TagValue = (Species | Concepts | Lifecycles | ContentTag | ProductTags | (Species & Concepts & Lifecycles & ContentTag & ProductTags)) & {
   id?: string;
 };
 
@@ -911,12 +889,12 @@ export interface UspItem {
 /**
  * Vertical alignment
  */
-export type VerticalFull = "Top" | "Center" | "Bottom";
+export type VerticalFull = 'Top' | 'Center' | 'Bottom';
 
 /**
  * Vertical alignment
  */
-export type VerticalSimple = "Top" | "Bottom";
+export type VerticalSimple = 'Top' | 'Bottom';
 
 export interface VideoItem {
   src?: string;
@@ -999,20 +977,20 @@ export type Modules =
       M200TypeformModule);
 
 export type ModulesAsKeys =
-  | "M010HeroModule"
-  | "M020CategoriesModule"
-  | "M021SpeciesList"
-  | "M060UspModule"
-  | "M070ImageModule"
-  | "M071VideoModule"
-  | "M075ImageAndTextModule"
-  | "M080ContentCarousel"
-  | "M089RelevantContent"
-  | "M090QuoteModule"
-  | "M100RichTextModule"
-  | "M120AccordionModule"
-  | "M140ProductListModule"
-  | "M200TypeformModule";
+  | 'M010HeroModule'
+  | 'M020CategoriesModule'
+  | 'M021SpeciesList'
+  | 'M060UspModule'
+  | 'M070ImageModule'
+  | 'M071VideoModule'
+  | 'M075ImageAndTextModule'
+  | 'M080ContentCarousel'
+  | 'M089RelevantContent'
+  | 'M090QuoteModule'
+  | 'M100RichTextModule'
+  | 'M120AccordionModule'
+  | 'M140ProductListModule'
+  | 'M200TypeformModule';
 
 export type Pages =
   | P010SearchPage
@@ -1021,17 +999,6 @@ export type Pages =
   | P060StandardPage
   | P140NotFoundPage
   | P150ErrorPage
-  | (P010SearchPage &
-      P020HomePage &
-      P050ProductDetailPage &
-      P060StandardPage &
-      P140NotFoundPage &
-      P150ErrorPage);
+  | (P010SearchPage & P020HomePage & P050ProductDetailPage & P060StandardPage & P140NotFoundPage & P150ErrorPage);
 
-export type PagesAsKeys =
-  | "P010SearchPage"
-  | "P020HomePage"
-  | "P050ProductDetailPage"
-  | "P060StandardPage"
-  | "P140NotFoundPage"
-  | "P150ErrorPage";
+export type PagesAsKeys = 'P010SearchPage' | 'P020HomePage' | 'P050ProductDetailPage' | 'P060StandardPage' | 'P140NotFoundPage' | 'P150ErrorPage';

@@ -1,0 +1,11 @@
+.dark {
+  color: var(--color-text-dark-secondary);
+}
+
+.light {
+  color: var(--color-text-light-secondary);
+}
+
+.includeBreaks {
+  white-space: pre-line;
+}

@@ -1,14 +1,10 @@
-import { LoaderFunctionArgs } from "@remix-run/node";
-import { getFrame } from "~/api/get-frame";
+import { LoaderFunctionArgs } from '@remix-run/node';
+import { getFrame } from '~/api/getFrame';
 
-export const frameLoader = async ({
-  params,
-  context,
-  request,
-}: LoaderFunctionArgs) => {
+export const frameLoader = async ({ params: _params, context: _context, request: _request }: LoaderFunctionArgs) => {
   try {
     const data = await getFrame({
-      locale: "en",
+      locale: 'en',
     });
     return data;
   } catch (e) {

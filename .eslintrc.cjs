@@ -33,6 +33,7 @@ module.exports = {
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
+        'prettier'
       ],
       settings: {
         react: {
@@ -46,6 +47,15 @@ module.exports = {
         "import/resolver": {
           typescript: {},
         },
+        rules: {
+          rules: {
+            'unused-imports/no-unused-imports': 'warn',
+            'unused-imports/no-unused-vars': [
+              'warn',
+              { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+            ],
+          }
+        }
       },
     },
 
@@ -69,7 +79,15 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:import/recommended",
         "plugin:import/typescript",
+        'prettier'
       ],
+      rules: {
+        'unused-imports/no-unused-imports': 'warn',
+        'unused-imports/no-unused-vars': [
+          'warn',
+          { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+        ],
+      }
     },
 
     // Node

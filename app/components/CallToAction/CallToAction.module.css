@@ -1,0 +1,229 @@
+.reset {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button {
+  --padding-button-v: var(--spacing-3);
+  --padding-button-h: var(--spacing-6);
+  display: inline-flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  min-height: 48px;
+  min-width: 48px;
+  padding: var(--padding-button-v) var(--padding-button-h);
+  border-radius: var(--border-radius-small);
+  text-align: center;
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+
+.start {
+  justify-content: flex-start;
+}
+.center {
+  justify-content: center;
+}
+.end {
+  justify-content: flex-end;
+}
+
+.primary {
+  &.dark {
+    color: var(--color-button-primary-text-base-dark);
+    background-color: var(--color-button-primary-background-base-dark);
+  }
+  &.light {
+    color: var(--color-button-primary-text-base-light);
+    background-color: var(--color-button-primary-background-base-light);
+  }
+
+  &:hover {
+    &.dark {
+      background-color: var(--color-button-primary-background-hover-dark);
+    }
+    &.light {
+      background-color: var(--color-button-primary-background-hover-light);
+    }
+  }
+
+  &:focus-visible {
+    &.dark {
+      outline-color: var(--color-button-primary-outline-focus-dark);
+    }
+    &.light {
+      outline-color: var(--color-button-primary-outline-focus-light);
+    }
+  }
+
+  &:active {
+    &.dark {
+      background-color: var(--color-button-primary-background-active-dark);
+    }
+    &.light {
+      background-color: var(--color-button-primary-background-active-light);
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    &.dark {
+      color: var(--color-button-primary-text-disabled-dark);
+      background-color: var(--color-button-primary-background-disabled-dark);
+    }
+    &.light {
+      color: var(--color-button-primary-text-disabled-light);
+      background-color: var(--color-button-primary-background-disabled-light);
+    }
+  }
+}
+
+.secondary {
+  --border-width-secondary: var(--border-width-small);
+  border-width: var(--border-width-secondary);
+  border-style: solid;
+  padding: calc(var(--padding-button-v) - var(--border-width-secondary)) calc(var(--padding-button-h) - var(--border-width-secondary));
+
+  &.dark {
+    color: var(--color-button-secondary-text-base-dark);
+    background-color: var(--color-button-secondary-background-base-dark);
+    border-color: var(--color-button-secondary-border-base-dark);
+  }
+  &.light {
+    color: var(--color-button-secondary-text-base-light);
+    background-color: var(--color-button-secondary-background-base-light);
+    border-color: var(--color-button-secondary-border-base-light);
+  }
+
+  &:hover {
+    &.dark {
+      border-color: var(--color-button-secondary-border-hover-dark);
+      background-color: var(--color-button-secondary-background-hover-dark);
+    }
+    &.light {
+      border-color: var(--color-button-secondary-border-hover-light);
+      background-color: var(--color-button-secondary-background-hover-light);
+    }
+  }
+
+  &:focus-visible {
+    &.dark {
+      outline-color: var(--color-button-secondary-outline-focus-dark);
+    }
+    &.light {
+      outline-color: var(--color-button-secondary-outline-focus-light);
+    }
+  }
+
+  &:active {
+    &.dark {
+      background-color: var(--color-button-secondary-background-active-dark);
+      border-color: var(--color-button-secondary-border-active-dark);
+    }
+    &.light {
+      background-color: var(--color-button-secondary-background-active-light);
+      border-color: var(--color-button-secondary-border-active-light);
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    &.dark {
+      color: var(--color-button-secondary-text-disabled-dark);
+      background-color: var(--color-button-secondary-background-disabled-dark);
+      border-color: var(--color-button-secondary-border-disabled-dark);
+    }
+    &.light {
+      color: var(--color-button-secondary-text-disabled-light);
+      background-color: var(--color-button-secondary-background-disabled-light);
+      border-color: var(--color-button-secondary-border-disabled-light);
+    }
+  }
+}
+
+.tertiary {
+  --padding-button-tertiary-v: 0;
+  --padding-button-tertiary-h: 0;
+  min-height: auto;
+  position: relative;
+  padding: var(--padding-button-tertiary-v) var(--padding-button-tertiary-h);
+  &.dark {
+    color: var(--color-button-tertiary-text-base-dark);
+    background-color: var(--color-button-tertiary-background-base-dark);
+  }
+  &.light {
+    color: var(--color-button-tertiary-text-base-light);
+    background-color: var(--color-button-tertiary-background-base-light);
+  }
+
+  &:hover:not(:disabled):not(.disabled) {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
+
+  &:focus-visible {
+    &.dark {
+      outline-color: var(--color-button-tertiary-outline-focus-dark);
+    }
+    &.light {
+      outline-color: var(--color-button-tertiary-outline-focus-light);
+    }
+  }
+
+  &:active {
+    &.dark {
+      color: var(--color-button-tertiary-text-active-dark);
+    }
+    &.light {
+      color: var(--color-button-tertiary-text-active-light);
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    &.dark {
+      color: var(--color-button-tertiary-text-disabled-dark);
+    }
+    &.light {
+      color: var(--color-button-tertiary-text-disabled-light);
+    }
+  }
+}
+
+/* Currently the design does not have examples of sizing, so only the typography changes */
+/* The size would most likely also change other stuff like padding */
+.medium {
+  font-family: var(--typography-button-medium-font-family);
+  font-size: var(--typography-button-medium-font-size);
+  font-weight: var(--typography-button-medium-font-weight);
+  line-height: var(--typography-button-medium-line-height);
+  letter-spacing: var(--typography-button-medium-letter-spacing);
+  text-decoration: var(--typography-button-medium-text-decoration);
+  text-transform: var(--typography-button-medium-text-case);
+}
+
+.large {
+  font-family: var(--typography-button-large-font-family);
+  font-size: var(--typography-button-large-font-size);
+  font-weight: var(--typography-button-large-font-weight);
+  line-height: var(--typography-button-large-line-height);
+  letter-spacing: var(--typography-button-large-letter-spacing);
+  text-decoration: var(--typography-button-large-text-decoration);
+  text-transform: var(--typography-button-large-text-case);
+}
+
+.spacingTop:not(:first-child) {
+  margin-top: var(--spacing-6);
+}
+
+.spacingBottom:not(:last-child) {
+  margin-bottom: var(--spacing-6);
+}

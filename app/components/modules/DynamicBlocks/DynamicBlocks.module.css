@@ -1,0 +1,16 @@
+.fallbackBlock {
+  background-color: #e3e3e3;
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.fallbackBlockText {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.fallbackBlockCode {
+  overflow: auto;
+  max-height: 300px;
+}

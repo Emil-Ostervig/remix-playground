@@ -8,6 +8,10 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [{ title: data?.pageTitle ?? data?.meta?.title }];
 };
 
+export const headers = () => ({
+  'Cache-Control': 'public, maxage=300, stale-while-revalidate=60',
+});
+
 export const loader = pageLoader;
 export const Index = () => {
   const page = useLoaderData<typeof pageLoader>();

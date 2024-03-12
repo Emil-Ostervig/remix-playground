@@ -11,6 +11,10 @@
 
 .navigationItem {
   display: inline-flex;
+  position: relative;
+  &:hover .subnav {
+    visibility: visible;
+  }
 }
 
 .navigationLink {
@@ -19,4 +23,30 @@
   align-items: center;
   justify-content: center;
   padding: 0 20px;
+  color: black;
+}
+
+.navigationLinkPending {
+  opacity: 0.5;
+}
+
+.navigationLinkActive {
+  color: red;
+}
+
+.subnav {
+  z-index: 999;
+  position: absolute;
+  visibility: hidden;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-width: 100%;
+  width: 250px;
+}
+
+.subnavLink {
+  padding: 10px 20px;
+  display: inline-block;
 }
